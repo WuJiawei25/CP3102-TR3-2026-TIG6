@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TrustFirst – Student marketplace</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#ffffff;--surface:#fff;--ink:#0f1f3a;--muted:#5b6b82;--line:#e3e8ef;--navy:#1f3864;--navyfg:#fff;--link:#1f3864;--teal:#14b8a6;--tealink:#0d9488;--tealfg:#0f2a47;--tealbg:#e3f6f3;--amber:#f5b52e;--amberbg:#fdf0cf;--tile:#eef3f9;--ring:#2f6fe4;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1626;--surface:#14213a;--ink:#eaf0f9;--muted:#9fb0c8;--line:#263655;--navy:#2f5199;--link:#8fb2ee;--teal:#14b3a0;--tealfg:#04201c;--tealbg:#12332f;--amberbg:#3a2f12;--tile:#1b2b49;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0d1626;--surface:#14213a;--ink:#eaf0f9;--muted:#9fb0c8;--line:#263655;--navy:#2f5199;--link:#8fb2ee;--teal:#14b3a0;--tealfg:#04201c;--tealbg:#12332f;--amberbg:#3a2f12;--tile:#1b2b49;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+a{color:var(--link)}
+:focus-visible{outline:3px solid var(--ring);outline-offset:2px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:16px;min-height:68px;flex-wrap:wrap;padding:8px 0}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:22px;color:var(--ink);text-decoration:none}
+.brand i{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:var(--navy);color:#fff;font-style:normal;font-size:20px}
+.brand b{color:var(--teal)}
+.links{display:flex;gap:6px;flex:1}
+.links a{padding:8px 14px;border-radius:10px;color:var(--muted);font-weight:500;text-decoration:none}
+.links a:hover{color:var(--ink)}.links a.on{color:var(--ink);font-weight:600}.links a{position:relative}.links a.on::after{content:"";position:absolute;left:14px;right:14px;bottom:-11px;height:3px;border-radius:3px;background:var(--teal)}
+.btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:600 15px Inter,system-ui,sans-serif;padding:11px 18px;min-height:44px;border-radius:12px;cursor:pointer;text-decoration:none}
+.btn.navy{background:var(--navy);color:var(--navyfg);border-color:var(--navy)}
+.btn.teal{background:var(--teal);color:var(--tealfg);border-color:var(--teal);font-size:17px;padding:14px 24px}
+.btn.ghost{border-color:transparent;background:none;color:var(--link);text-decoration:underline}
+.btn:disabled{opacity:.55;cursor:not-allowed}
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;border-radius:999px;padding:3px 10px}
+.badge.v{background:var(--tealbg);color:var(--tealink,var(--teal))}
+.badge.top{background:var(--amberbg);color:#9a6a00}
+.badge.c{background:var(--tile);color:var(--muted)}
+@media(prefers-color-scheme:dark){.badge.top{color:var(--amber)}}
+h1{font-size:clamp(38px,6vw,64px);line-height:1.05;letter-spacing:-.025em;margin:16px 0;font-weight:600}
+h1 em{font-style:normal;color:var(--teal)}
+h2{font-size:28px;letter-spacing:-.015em;margin:0 0 16px}
+h3{margin:0 0 6px;font-size:18px}
+.lead{font-size:19px;color:var(--muted);max-width:30em}
+.hero{display:grid;gap:40px;padding:56px 0 40px;align-items:center}
+@media(min-width:860px){.hero{grid-template-columns:1.1fr .9fr}}
+.cta{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin:28px 0}
+.tile{background:var(--tile);display:grid;place-items:center;font-size:64px;border-radius:14px;aspect-ratio:4/3}
+.hcard{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:14px;box-shadow:0 20px 50px rgba(15,31,58,.12)}
+.hcard .tile{font-size:110px;aspect-ratio:5/4}
+.float{position:absolute;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px 14px;box-shadow:0 8px 24px rgba(15,31,58,.12);font-size:13px;color:var(--muted)}
+.float b{display:block;color:var(--ink);font-size:15px}
+section{padding:36px 0}
+.cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px}
+.cat{display:flex;flex-direction:column;align-items:center;gap:6px;padding:18px 8px;border:1px solid var(--line);background:var(--surface);border-radius:14px;color:var(--ink);text-decoration:none;font-weight:600}
+.cat span{font-size:30px}
+.cat:hover{border-color:var(--teal)}
+.banner{background:var(--navy);color:#fff;border-radius:20px;padding:28px;display:flex;gap:20px;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.banner h2{margin:0 0 4px;color:#fff}
+.banner .btn{background:#fff;color:#1f3864;border-color:#fff}
+.steps{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));counter-reset:s}
+.steps div{border-left:3px solid var(--teal);padding:4px 16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:12px;text-decoration:none;color:var(--ink);display:block}
+.card:hover{border-color:var(--teal)}
+.card .tile{margin-bottom:10px;position:relative}
+.card .badge.top{position:absolute;top:8px;left:8px;font-size:11px}
+.price{font-weight:800;font-size:20px}
+.meta{color:var(--muted);font-size:13px}
+.bar{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 20px}
+input,select,textarea{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:11px 14px;min-height:44px;width:100%}
+.bar input{flex:2 1 220px}.bar select{flex:1 1 140px;width:auto}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.chip{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:8px 14px;min-height:44px;font:500 14px Inter,system-ui,sans-serif;cursor:pointer}
+.chip.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px;max-width:520px;margin:32px auto}
+.panel.wide{max-width:none;margin:0}
+label{display:block;font-weight:600;font-size:14px;margin:14px 0 6px}
+.err{color:#c0392b;font-size:14px;margin-top:8px;min-height:20px}
+@media(prefers-color-scheme:dark){.err{color:#ff8a7a}}
+.detail{display:grid;gap:28px;padding:32px 0}
+@media(min-width:860px){.detail{grid-template-columns:1.2fr 1fr}}
+.detail .tile{font-size:140px}
+.box{border:1px solid var(--line);background:var(--surface);border-radius:14px;padding:16px;margin:14px 0}
+.box.safe{background:var(--tealbg);border-color:transparent}
+.chat{display:grid;gap:16px;min-height:520px}
+@media(min-width:760px){.chat{grid-template-columns:280px 1fr}}
+.thr{display:block;width:100%;text-align:left;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:12px;padding:12px;margin-bottom:8px;cursor:pointer;font:inherit}
+.thr.on{border-color:var(--teal)}
+.msgs{display:flex;flex-direction:column;gap:8px;padding:12px 0;min-height:240px}
+.m{max-width:80%;padding:10px 14px;border-radius:14px;background:var(--tile)}
+.m.me{align-self:flex-end;background:var(--navy);color:#fff}
+.send{display:flex;gap:8px}
+.empty{text-align:center;color:var(--muted);padding:40px 0}
+footer{border-top:1px solid var(--line);margin-top:40px;padding:28px 0;color:var(--muted);font-size:14px}
+#toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:12px 20px;border-radius:12px;opacity:0;pointer-events:none;transition:opacity .2s;z-index:9}
+#toast.show{opacity:1}
+.eyebrow{color:var(--tealink,var(--teal));font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;margin:36px 0 4px}
+.dk{background:#152747;color:#dfe8f6;border-radius:28px;padding:48px;margin:32px 0 28px;display:grid;gap:28px;align-items:center}
+@media(min-width:860px){.dk{grid-template-columns:1.2fr .8fr}}
+.dk h1{font-size:clamp(34px,5vw,52px);margin:14px 0;color:#fff}.dk p{font-size:18px;margin:0 0 22px}.dk.b{background:#1c3260}
+.pill{display:inline-block;background:#fff;color:#152747;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 12px;border-radius:999px}
+.pill.amber{background:var(--amber);color:#2b2100}
+.tilt{background:#fff;color:#152747;border-radius:24px;padding:28px;transform:rotate(3deg);font-weight:600;font-size:22px;box-shadow:0 20px 40px rgba(0,0,0,.3);max-width:340px;justify-self:center}
+.tilt b{display:block;color:#14b8a6;font-size:56px;line-height:.8}.tilt small{display:block;color:#5b6b82;font-weight:400;font-size:14px;margin-top:14px}
+.stack{display:flex;justify-content:center}.stack i{font-style:normal;display:grid;place-items:center;width:110px;height:130px;font-size:48px;border-radius:18px;border:4px solid #fff;background:#9cc3d9;margin:0 -14px;transform:rotate(-6deg)}.stack i:nth-child(2){transform:none;z-index:1;background:#bcd6e5;height:150px}.stack i:nth-child(3){transform:rotate(6deg);background:#e3d8c8}
+.grid2{display:grid;gap:18px;grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.req{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px}.rt{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.tag{background:var(--tile);color:var(--link);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:5px 10px;border-radius:999px}
+.req h3{font-size:20px;font-weight:500}.amt{color:var(--tealink,var(--teal));font-weight:700;margin:6px 0 10px}
+.cats{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+.cat2{display:block;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px;text-decoration:none;color:var(--ink)}
+.cat2 i{font-style:normal;display:grid;place-items:center;width:46px;height:46px;border-radius:12px;background:var(--tealbg);font-size:22px;margin-bottom:18px}
+.cat2 b{display:block;font-size:17px}.cat2 span{color:var(--muted);font-size:14px}.cat2:hover{border-color:var(--teal)}
+.tf{display:grid;place-items:center;width:84px;height:84px;border-radius:24px;background:var(--amber);color:#1f3864;font-weight:800;font-size:22px;transform:rotate(-8deg)}
+.banner .pill{margin-bottom:8px}
+.tile{position:relative;overflow:hidden}.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.tile .badge.top{z-index:1}
+.card .price{color:var(--link);font-size:24px;margin:4px 0 10px}.card h3{font-weight:500}
+.row{display:flex;justify-content:space-between;align-items:center;font-size:13px}.vs{color:var(--tealink,var(--teal));font-weight:600}
+.sp{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;background:var(--tile);border:1px solid var(--line);border-radius:18px;padding:22px 28px;margin:32px 0}.sp .pill{background:var(--line);color:var(--muted)}
+.fg{display:grid;gap:28px;grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}.fg h4{margin:0 0 12px;color:var(--ink)}.fg a:not(.brand){display:block;color:var(--muted);text-decoration:none;margin-bottom:12px}
+.ex{background:var(--tealbg);border-radius:18px;padding:22px;color:var(--muted)}
+.bt{display:grid;grid-template-columns:1fr 1fr;aspect-ratio:2/1}.bt span{display:grid;place-items:center;font-size:48px;background:var(--tile)}.bt span+span{background:#cfe0ee}
+.bc{position:relative;overflow:hidden;border-radius:14px;margin-bottom:10px}.bc .badge{position:absolute;top:10px;left:10px;background:var(--amber);color:#2b2100}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+<a class="brand" href="#home"><i>🛡️</i>Trust<b>First</b></a>
+<nav class="links" aria-label="Main"><a href="#browse" data-r="browse">Browse</a><a href="#wanted" data-r="wanted">Wanted</a><a href="#bundles" data-r="bundles">Bundles</a></nav>
+<a class="btn" href="#chat" aria-label="Messages">💬</a>
+<a class="btn" href="#verify" id="loginBtn">Log in</a>
+<a class="btn navy" href="#sell">+ Sell</a>
+</div></header>
+<main class="wrap" id="app"></main>
+<footer><div class="wrap fg"><div><a class="brand" href="#home"><i>🛡️</i>Trust<b>First</b></a><p>Verified students. Safer deals. Zero commission.</p></div><div><h4>Marketplace</h4><a href="#browse">Browse</a><a href="#wanted">Wanted board</a><a href="#bundles">Move-out bundles</a></div><div><h4>Trust &amp; safety</h4><a href="#verify">How verification works</a><a href="#item-1">Campus meet-up tips</a><a href="#home">Community rules</a></div><div class="ex">🛡️<br>Exclusively for verified JCU Singapore students.</div></div><div class="wrap" style="margin-top:16px">Listings, names and prices shown are sample content.</div></footer>
+<div id="toast" role="status" aria-live="polite"></div>
+<script>
+/* ============ API LAYER ============
+   Backend developer: replace each mock below with a fetch() call.
+   Suggested endpoints:
+   POST /api/auth/otp         {email}            -> {ok}
+   POST /api/auth/verify      {email, code}      -> {token, user}
+   GET  /api/listings?q&cat&max&sort             -> [listing]
+   GET  /api/listings/:id                        -> listing
+   POST /api/listings         {title,cat,...}    -> listing
+   GET  /api/chats/:listingId                    -> [message]
+   POST /api/chats/:listingId {text}             -> message
+   Listing shape: {id,t,cat,p,cond,seller,place,age,top,desc} */
+const ALLOWED_DOMAINS=['jcu.edu.au','my.jcu.edu.au','jcu.edu.sg'];
+const wait=ms=>new Promise(r=>setTimeout(r,ms));
+let LISTINGS=[
+{id:1,t:'IT Fundamentals textbook',cat:'Textbooks',p:18,cond:'Good',seller:'Mei L.',place:'Library entrance',age:'2h ago',top:false,desc:'Clean copy with light highlighting in the first three chapters.'},
+{id:2,t:'IKEA study desk',cat:'Furniture',p:35,cond:'Like new',seller:'Arjun K.',place:'Student housing lobby',age:'5h ago',top:true,desc:'120 cm desk with a shelf underneath. Buyer collects.'},
+{id:3,t:'Foldable bicycle',cat:'Bikes',p:120,cond:'Good',seller:'Sophie T.',place:'Campus gate',age:'1d ago',top:true,desc:'Six-speed, recently serviced. Includes a lock.'},
+{id:4,t:'Rice cooker (1.8 L)',cat:'Kitchen',p:12,cond:'Fair',seller:'Min H.',place:'Canteen',age:'1d ago',top:false,desc:'Works perfectly. Moving out this week.'},
+{id:5,t:'Monitor 24 inch',cat:'Electronics',p:60,cond:'Like new',seller:'Daniel W.',place:'Library entrance',age:'2d ago',top:false,desc:'Full HD, HDMI cable included.'},
+{id:6,t:'Graduation gown (M)',cat:'Clothes',p:15,cond:'Good',seller:'Priya S.',place:'Admin building',age:'3d ago',top:false,desc:'Worn once. Dry-cleaned.'},
+{id:7,t:'Concert ticket, Saturday',cat:'Tickets',p:40,cond:'New',seller:'Kai Z.',place:'Campus gate',age:'3d ago',top:false,desc:'Cannot attend anymore. Transfer through the official app.'},
+{id:8,t:'Desk lamp',cat:'Other',p:8,cond:'Good',seller:'Linh N.',place:'Canteen',age:'4d ago',top:false,desc:'Adjustable arm, warm bulb included.'}];
+const THREADS={2:[{me:0,t:'Hi! Is the desk still available?'},{me:1,t:'Yes, it is. I can meet at the library.'}],1:[{me:1,t:'Is the textbook still available?'}]};
+const api={
+ async sendOtp(email){await wait(400);return{ok:true}},
+ async verifyOtp(email,code){await wait(400);if(code!=='123456')throw new Error('That code is incorrect. Use 123456 in this demo.');return{token:'demo',user:{email}}},
+ async listings({q='',cat='',max=0,sort='new'}={}){await wait(150);let r=LISTINGS.filter(i=>(!cat||i.cat===cat)&&(!max||i.p<=max)&&(!q||(i.t+i.desc).toLowerCase().includes(q.toLowerCase())));if(sort==='low')r=[...r].sort((a,b)=>a.p-b.p);if(sort==='high')r=[...r].sort((a,b)=>b.p-a.p);return r},
+ async listing(id){return LISTINGS.find(i=>i.id==id)},
+ async createListing(d){await wait(300);const l={id:LISTINGS.length+1,seller:'You',age:'Just now',desc:'',...d};LISTINGS=[l,...LISTINGS];return l},
+ async messages(id){return THREADS[id]||[]},
+ async sendMessage(id,t){(THREADS[id]=THREADS[id]||[]).push({me:1,t});return{ok:true}}
+};
+/* ============ UI ============ */
+const CATS=['Textbooks','Electronics','Furniture','Clothes','Kitchen','Bikes','Tickets','Other'];
+const ICON={Textbooks:'📚',Electronics:'💻',Furniture:'🪑',Clothes:'👕',Kitchen:'🍳',Bikes:'🚲',Tickets:'🎟️',Other:'📦'};
+const S={verified:false,email:'',filter:{q:'',cat:'',max:0,sort:'new'}};
+const $=s=>document.querySelector(s),app=$('#app');
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove('show'),2600)}
+const go=h=>location.hash=h;
+let card=i=>`<a class="card" href="#item-${i.id}"><div class="tile">${i.top?'<span class="badge top">Top pick</span>':''}${ICON[i.cat]}</div><div class="price">$${i.p}</div><h3>${esc(i.t)}</h3><div class="meta"><span class="badge c">${i.cond}</span> ${i.age}</div><div class="meta" style="margin-top:6px"><span class="badge v">✓ Verified</span> ${esc(i.seller)}</div></a>`;
+const V={
+home(){return`<div class="hero"><div><span class="badge c">Made for JCU Singapore</span><h1>Clear your room. Find your next <em>deal.</em> Students only.</h1><p class="lead">Buy and sell with verified JCU students. No strangers, no commission, less stress.</p><div class="cta"><a class="btn teal" href="#verify">Verify with your uni email →</a><a class="btn ghost" href="#browse">Browse first</a></div><div class="meta">Every account is confirmed with a university email.</div></div>
+<div class="hcard"><div class="tile">🖥️</div><div class="float" style="top:18px;left:-14px"><b>Student verified</b>JCU email confirmed</div><div style="padding:14px 6px 4px"><span class="badge top">Top pick</span><h3 style="margin-top:6px">Study desk</h3><span class="badge v">✓ Verified seller</span></div><div class="float" style="right:-10px;bottom:20px"><b>$0 commission</b>Keep every dollar</div></div></div>
+<section><p class="eyebrow">Everything you need</p><h2>Shop by category</h2><div class="cats">${CATS.filter(c=>c!=='Other').map(c=>`<a class="cat2" href="#browse" onclick="S.filter.cat='${c}'"><i>${ICON[c]}</i><b>${c}</b><span>Explore →</span></a>`).join('')}</div></section>
+<section><div class="banner"><div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap"><span class="tf">TF</span><div><span class="pill amber">Move-out season</span><h2>Leaving Singapore soon?</h2><p style="margin:0 0 14px">Sell your room essentials together and clear out faster.</p><a class="btn" href="#bundles">Explore bundles →</a></div></div></div></section>
+<section><h2>How it works</h2><div class="steps"><div><h3>1. Verify</h3>Confirm your university email once.</div><div><h3>2. List or search</h3>Post an item in a minute, or filter by category and price.</div><div><h3>3. Meet on campus</h3>Chat, agree on a public spot, and hand over safely.</div></div></section>
+<section><h2>Freshly listed</h2><div class="grid" id="feat"></div></section>`},
+verify(){return`<div class="panel" id="vp">${S.verified?`<h2>You’re verified</h2><p><span class="badge v">✓ Verified Student</span></p><p class="meta">${esc(S.email)}</p><a class="btn teal" href="#browse">Start browsing</a>`:`<h2>Verify your student email</h2><p class="meta">We’ll send a 6-digit code to your university email.</p><label for="em">University email</label><input id="em" type="email" placeholder="name@my.jcu.edu.au" autocomplete="email"><div class="err" id="er"></div><button class="btn navy" id="go">Send code</button>`}</div>`},
+browse(){const f=S.filter;return`<h2 style="margin-top:32px">Browse items</h2><div class="bar"><input id="q" type="search" placeholder="Search items" aria-label="Search" value="${esc(f.q)}"><select id="mx" aria-label="Max price"><option value="0">Any price</option><option value="20">Up to S$20</option><option value="50">Up to S$50</option><option value="100">Up to S$100</option></select><select id="so" aria-label="Sort"><option value="new">Newest</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option></select></div><div class="chips" id="chips"></div><div class="grid" id="gr"></div><div class="sp"><div><span class="pill">Sponsored</span> <b>Print your notes near campus</b><div class="meta">10% student discount at Campus Copy Hub</div></div><b>View offer →</b></div>`},
+item(i){if(!i)return'<div class="empty">This item isn’t available. <a href="#browse">Back to browse</a></div>';return`<div class="detail"><div><div class="tile">${ICON[i.cat]}</div></div><div><span class="badge c">${i.cat}</span> ${i.top?'<span class="badge top">Top pick</span>':''}<h1 style="font-size:36px">${esc(i.t)}</h1><div class="price" style="font-size:30px">S$${i.p}</div><p><span class="badge c">${i.cond}</span> <span class="meta">Posted ${i.age} · Pick-up: ${esc(i.place)}</span></p><p>${esc(i.desc)}</p><div class="box"><span class="badge v">✓ Verified Student</span> <b>${esc(i.seller)}</b></div><a class="btn navy" href="#chat-${i.id}">Chat with seller</a> <button class="btn" onclick="toast('Saved to your list')">♡ Save</button><div class="box safe"><b>Meet on campus</b><br>Choose a busy public spot such as the library entrance or canteen, inspect the item first, and pay only at handover.</div></div></div>`},
+sell(){if(!S.verified)return`<div class="panel"><h2>Verify to sell</h2><p class="meta">Only verified students can post listings.</p><a class="btn navy" href="#verify">Verify with your uni email</a></div>`;return`<div class="panel"><h2>Create a listing</h2><label for="t">Title</label><input id="t" placeholder="e.g. Calculus textbook"><label for="c">Category</label><select id="c">${CATS.map(c=>`<option>${c}</option>`).join('')}</select><label for="cd">Condition</label><select id="cd"><option>New</option><option>Like new</option><option selected>Good</option><option>Fair</option></select><label for="p">Price (SGD)</label><input id="p" type="number" min="0" inputmode="numeric"><label for="pl">Meet-up spot</label><select id="pl"><option>Library entrance</option><option>Canteen</option><option>Campus gate</option><option>Student housing lobby</option></select><label for="d">Description</label><textarea id="d" rows="3"></textarea><label style="display:flex;gap:10px;align-items:center;font-weight:500"><input type="checkbox" id="bo" style="width:auto;min-height:0"> Boost this listing to the top ($5)</label><div class="err" id="er"></div><button class="btn navy" id="pub">Publish listing</button></div>`},
+chat(id){return`<h2 style="margin-top:32px">Messages</h2><div class="chat"><div id="th"></div><div class="panel wide" id="cv"></div></div>`},
+wanted(){const w=[['Desk lamp under $15','Lina R.'],['Used calculator (Casio fx-991)','Tom B.'],['Mini fridge, pick-up at housing','Aisha M.'],['Bicycle helmet, size M','Jon P.']];return`<h2 style="margin-top:32px">Wanted board</h2><p class="meta">Students post what they need. Sellers reply with a matching listing.</p><div class="grid">${w.map(x=>`<div class="card"><h3>${x[0]}</h3><div class="meta"><span class="badge v">✓ Verified</span> ${x[1]}</div><button class="btn" style="margin-top:10px" onclick="toast('Reply sent')">I have this</button></div>`).join('')}</div>`},
+bundles(){const b=[['Dorm starter pack','Desk lamp, rice cooker, kettle, bedding','$45'],['First-year study set','Textbooks, calculator, desk organiser','$60'],['Move-out room bundle','Desk, chair, monitor, shelf','$150']];return`<h2 style="margin-top:32px">Move-out bundles</h2><div class="grid">${b.map(x=>`<div class="card"><div class="tile">📦</div><div class="price">${x[2]}</div><h3>${x[0]}</h3><div class="meta">${x[1]}</div></div>`).join('')}</div>`}
+};
+async function chips(){const c=$('#chips');c.innerHTML=['',...CATS].map(x=>`<button class="chip${S.filter.cat===x?' on':''}" data-c="${x}">${x||'All'}</button>`).join('');c.onclick=e=>{if(e.target.dataset.c!==undefined){S.filter.cat=e.target.dataset.c;chips();grid()}}}
+async function grid(){const r=await api.listings(S.filter);$('#gr').innerHTML=r.length?r.map(card).join(''):'<div class="empty" style="grid-column:1/-1">No items match. Try another category or clear the search.</div>'}
+async function chatView(id){const ids=Object.keys(THREADS);if(id&&!ids.includes(id))ids.push(id);const cur=id||ids[0];$('#th').innerHTML=ids.length?ids.map(k=>{const i=LISTINGS.find(l=>l.id==k);return`<button class="thr${k==cur?' on':''}" onclick="go('chat-${k}')"><b>${esc(i.t)}</b><br><span class="meta">${esc(i.seller)}</span></button>`}).join(''):'<div class="empty">No chats yet.</div>';
+ if(!cur){$('#cv').innerHTML='<div class="empty">Open an item and choose “Chat with seller” to start.</div>';return}
+ const i=LISTINGS.find(l=>l.id==cur),m=await api.messages(cur);
+ $('#cv').innerHTML=`<b>${esc(i.t)}</b> <span class="meta">S$${i.p}</span><div class="msgs">${m.map(x=>`<div class="m${x.me?' me':''}">${esc(x.t)}</div>`).join('')||'<div class="meta">Say hello to start the chat.</div>'}</div><div class="chips">${['Is this still available?','Can we meet at the library?'].map(q=>`<button class="chip" data-q="${q}">${q}</button>`).join('')}</div><div class="send"><input id="mi" placeholder="Write a message" aria-label="Message"><button class="btn navy" id="ms">Send</button></div>`;
+ const send=async t=>{if(!t.trim())return;await api.sendMessage(cur,t);chatView(id)};
+ $('#ms').onclick=()=>send($('#mi').value);$('#mi').onkeydown=e=>{if(e.key==='Enter')send(e.target.value)};
+ $('#cv').querySelectorAll('[data-q]').forEach(b=>b.onclick=()=>send(b.dataset.q))}
+function wire(name,arg){
+ if(name==='home')api.listings().then(r=>$('#feat').innerHTML=r.slice(0,4).map(card).join(''));
+ if(name==='browse'){chips();grid();$('#mx').value=S.filter.max;$('#so').value=S.filter.sort;
+  $('#q').oninput=e=>{S.filter.q=e.target.value;grid()};$('#mx').onchange=e=>{S.filter.max=+e.target.value;grid()};$('#so').onchange=e=>{S.filter.sort=e.target.value;grid()}}
+ if(name==='chat')chatView(arg);
+ if(name==='verify'&&!S.verified){const er=$('#er'),b=$('#go');let step=1,pend='';
+  b.onclick=async()=>{er.textContent='';
+   if(step===1){const em=$('#em').value.trim().toLowerCase(),d=em.split('@')[1]||'';
+    if(!ALLOWED_DOMAINS.includes(d)){er.textContent='Use your university email ending in '+ALLOWED_DOMAINS.map(x=>'@'+x).join(', ')+'.';return}
+    b.disabled=true;await api.sendOtp(em);pend=em;step=2;b.disabled=false;
+    $('#vp').innerHTML=`<h2>Enter your code</h2><p class="meta">We sent a 6-digit code to ${esc(em)}. Demo code: 123456.</p><label for="cd">6-digit code</label><input id="cd" inputmode="numeric" maxlength="6" autocomplete="one-time-code"><div class="err" id="er"></div><button class="btn navy" id="go">Verify</button>`;
+    $('#go').onclick=async()=>{const e2=$('#er');e2.textContent='';try{await api.verifyOtp(pend,$('#cd').value.trim());S.verified=true;S.email=pend;$('#loginBtn').textContent='✓ Verified';render()}catch(x){e2.textContent=x.message}}}}}
+ if(name==='sell'&&S.verified)$('#pub').onclick=async()=>{const t=$('#t').value.trim(),p=+$('#p').value;if(!t||!(p>=0)||$('#p').value===''){$('#er').textContent='Add a title and a price to publish.';return}
+  await api.createListing({t,cat:$('#c').value,cond:$('#cd').value,p,place:$('#pl').value,desc:$('#d').value,top:$('#bo').checked});toast('Listing published');S.filter={q:'',cat:'',max:0,sort:'new'};go('browse')}}
+async function render(){const h=location.hash.slice(1)||'home',[name,arg]=[h.split('-')[0],h.split('-')[1]];
+ document.querySelectorAll('.links a').forEach(a=>a.classList.toggle('on',a.dataset.r===name));
+ let html;if(name==='item')html=V.item(await api.listing(arg));else html=(V[name]||V.home)(arg);
+ app.innerHTML=html;wire(V[name]?name:'home',arg);scrollTo(0,0)}
+/* Photos: add img:'images/name.jpg' to a listing. If the file is missing, the emoji tile shows instead. */
+card=i=>`<a class="card" href="#item-${i.id}"><div class="tile">${i.top?'<span class="badge top">Top pick</span>':''}<span>${ICON[i.cat]}</span>${i.img?`<img src="${esc(i.img)}" alt="${esc(i.t)}" onerror="this.remove()">`:''}</div><h3>${esc(i.t)}</h3><div class="price">S$${i.p}</div><div class="row"><span class="vs">🛡️ ${esc(i.seller)}</span><span class="meta">${i.age}</span></div></a>`;
+const REQ=[['Textbooks','Business Statistics textbook','Up to S$25','Need the latest edition if possible. Can meet after class.','2h ago'],['Furniture','Mini fridge for dorm','Up to S$80','Any working compact fridge. Needed before next Monday.','2h ago'],['Electronics','Monitor for study','Up to S$60','24 inch or larger, HDMI preferred.','5h ago'],['Textbooks','Calculus textbook','Up to S$30','Any recent edition is fine.','1d ago']];
+const reqHtml=c=>REQ.filter(r=>!c||r[0]===c).map(r=>`<div class="req"><div class="rt"><span class="tag">${r[0]}</span><span class="meta">${r[4]}</span></div><h3>${r[1]}</h3><div class="amt">${r[2]}</div><div class="meta">${r[3]}</div></div>`).join('');
+function wFilter(c){$('#wl').innerHTML=reqHtml(c);document.querySelectorAll('#wc .chip').forEach(b=>b.classList.toggle('on',b.dataset.c===c))}
+V.wanted=()=>`<section class="dk"><div><span class="pill">Community requests</span><h1>Looking for something?</h1><p>Post what you need and let verified students come to you.</p><button class="btn teal" onclick="toast('Request posted (demo)')">+ Post a request</button></div><div class="tilt"><b>“</b>Looking for a mini fridge under S$80<small>Posted 24 min ago</small></div></section><div class="chips" id="wc">${[['','All requests'],['Textbooks','Textbooks'],['Furniture','Furniture'],['Electronics','Electronics']].map((x,n)=>`<button class="chip${n?'':' on'}" data-c="${x[0]}" onclick="wFilter(this.dataset.c)">${x[1]}</button>`).join('')}</div><div class="grid2" id="wl">${reqHtml('')}</div>`;
+const BUN=[['Desk setup','Desk, chair and lamp','S$95','🖥️','🪑'],['Kitchen and shelf','Pots, pan, rice cooker, bookshelf','S$70','🍳','📚'],['Study kit','Laptop stand, notebooks, reading glasses','S$55','💻','📖']];
+V.bundles=()=>`<section class="dk b"><div><span class="pill amber">Move-out season</span><h1>One room. One deal.<br>Everything you need.</h1><p>Save more and settle in faster with complete student room bundles.</p></div><div class="stack"><i>🖥️</i><i>🪑</i><i>🍳</i></div></section><p class="eyebrow">Ready to move</p><h2>Bundles near campus</h2><div class="grid">${BUN.map(b=>`<div class="card"><div class="bc"><div class="bt"><span>${b[3]}</span><span>${b[4]}</span></div><span class="badge">Save 30%</span></div><h3>${b[0]}</h3><div class="meta">${b[1]}</div><div class="price">${b[2]}</div></div>`).join('')}</div>`;
+addEventListener('hashchange',render);render();
+</script>
+</body>
+</html>
